@@ -5,4 +5,16 @@ module.exports = {
     node: true,
   },
   extends: ["airbnb", "prettier"],
+  rules: {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+  },
 };
