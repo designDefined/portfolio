@@ -10,7 +10,7 @@ module.exports = {
         static: './dist',
         hot:true,
     },
-    plugins: [new HTMLWebpackPlugin({title:"Development"}), new CleanWebpackPlugin()],
+    plugins: [new HTMLWebpackPlugin({title:"Development", template: "src/index.html"}), new CleanWebpackPlugin()],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
