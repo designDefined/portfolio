@@ -1,5 +1,11 @@
-import { ReactDOM } from "react";
-import app from "./app";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-const domContainer = document.querySelector("#root-container");
-ReactDOM.render(app, domContainer);
+const rootContainer = document.querySelector("#root-container");
+
+ReactDOM.createRoot(rootContainer).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
