@@ -24,6 +24,8 @@ module.exports = {
     "prettier",
   ],
   rules: {
+    // suppress errors for "mutating" logic in redux-toolkit createSlice();
+    "no-param-reassign": "off",
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
     "import/extensions": ["error"],
