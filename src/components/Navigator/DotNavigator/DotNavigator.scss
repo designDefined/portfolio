@@ -1,0 +1,22 @@
+.DotNavigator{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .DotNavigator_List{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 12;
+  }
+  .DotNavigator_Bar{
+    position: absolute;
+    width:100%;
+    height:5px;
+    background-color: #e5e5e5;
+    z-index: 11;
+  }
+}
+

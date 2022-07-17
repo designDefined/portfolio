@@ -1,25 +1,25 @@
 import "./css-reset.css";
-import "./App.scss";
 import { Route, Routes } from "react-router-dom";
+import "./App.scss";
+import "./styles/themes.scss";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home/Home";
-import List from "./pages/Home/List";
-import Item from "./pages/Home/Item";
+import Page404 from "./pages/Error/Page404";
+import Default from "./pages/Default/Default";
+import { RootState } from "./redux/store";
 
 function App() {
+  const currentTheme = useSelector((state: RootState) => state.theme.current);
+
   return (
-    <div className="App">
+    <main className={`main-container theme-${currentTheme}`}>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="list" element={<List />}>
-            <Route path=":postId" element={<Item />} />
-          </Route>
-          <Route
-            path="*"
-            element={<div style={{ fontSize: "2rem" }}>page not found</div>}
-          />
+        <Route path="/" element={<Default />}>
+          <Route index element={<Home />} />
+          <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
-    </div>
+    </main>
   );
 }
 export default App;

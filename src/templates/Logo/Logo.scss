@@ -1,0 +1,21 @@
+.Logo {
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  min-width:600px;
+  padding:120px;
+  color:var(--font-color);
+  .Logo_Header{
+    margin-bottom: 0.5em;
+    h1{
+      color: inherit;
+      font-size: 6em;
+      font-weight: bolder;
+    }
+  }
+  .Logo_Sub{
+    font-size:1.5em;
+    text-align: right;
+    margin-top:1em;
+  }
+}
