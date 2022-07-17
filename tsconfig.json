@@ -9,6 +9,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*", ".eslintrc.js"],
+  "include": ["**/*.ts", "**/*.tsx", ".eslintrc.js"],
   "exclude": ["node_modules"]
 }
