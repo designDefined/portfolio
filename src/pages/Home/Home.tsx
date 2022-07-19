@@ -10,7 +10,6 @@ function Home() {
       <Logo />
       <HomeNavigator />
       <HomeCube />
-      <Outlet />
     </div>
   );
 }
