@@ -8,8 +8,8 @@ function Background() {
 
   return (
     <div className="Background">
-      <div className="Background_Div Background_Primary">1</div>
-      <div className="Background_Div Background_Secondary">2</div>
+      <div className="Background_Div Background_Primary" />
+      <div className="Background_Div Background_Secondary" />
       {next && (
         <div className="Background_Div Background_Next" style={style}>
           1

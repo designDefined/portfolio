@@ -1,14 +1,18 @@
+@use "./colors";
+
 .theme-default{
-  --main-color:black;
-  --sub-color: #d5d5d5;
-  --font-color:black;
-  --background-color:#d5d5d5;
+  --main-color: #{colors.$default-main};
+  --sub-color: #{colors.$default-sub};
+  --font-color: #{colors.$default-font};
+  --background1-color: #{colors.$default-background1};
+  --background2-color: #{colors.$default-background2};
 }
 .theme-writer{
- --main-color: #face7d;
- --sub-color: #95b2ee;
- --font-color:black;
- --background-color: #95b2ee;
+ --main-color: #{colors.$writer-main};
+ --sub-color: #{colors.$writer-sub};
+ --font-color: #{colors.$writer-font};
+ --background1-color: #{colors.$writer-background1};
+ --background2-color: #{colors.$writer-background2};
 }
 
 .theme-filmmaker{

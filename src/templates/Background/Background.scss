@@ -4,6 +4,7 @@
   height: 100%;
   top:0;
   left:0;
+  overflow-y: hidden;
   z-index: -1;
   .Background_Div{
     position: absolute;
@@ -11,7 +12,27 @@
     height: 100%;
   }
   .Background_Primary{
-    background-color: red;
+    background-color: var(--background1-color);
   }
-  .Background_Secondary{}
+  .Background_Secondary{
+    height:200%;
+    top:0;
+    background: linear-gradient(to top , var(--background2-color) 0%, rgba(255,255,255,0) 100%);
+    animation: wave 8s alternate infinite;
+  }
+}
+
+@keyframes wave{
+  0% {
+    transform: translateY(50%);
+  }
+  25% {
+    transform: translateY(50%);
+  }
+  75% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(-50%);;
+  }
 }
