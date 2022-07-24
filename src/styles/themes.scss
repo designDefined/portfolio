@@ -1,4 +1,5 @@
 @use "./colors";
+@use "./fonts";
 
 .theme-default{
   --main-color: #{colors.$default-main};
@@ -13,6 +14,7 @@
  --font-color: #{colors.$writer-font};
  --background1-color: #{colors.$writer-background1};
  --background2-color: #{colors.$writer-background2};
+ font-family:fonts.$font-kanit;
 }
 
 .theme-filmmaker{
