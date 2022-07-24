@@ -24,8 +24,10 @@ function DotItem({ index, bone, clicker }: DotItemParams) {
       style={currentTheme === "default" ? DotItemStyle(bone.defaultColor) : {}}
     >
       <button
+        className="DotItem_Button"
         type="button"
         onClick={() => {
+          console.log("a");
           clicker(bone.clickerPayload);
         }}
       />
