@@ -10,9 +10,14 @@ export type ThemeType =
 interface ThemeState {
   current: ThemeType;
   past: ThemeType;
+  isChanging: boolean;
 }
 
-const initialState = { current: "default", past: "default" } as ThemeState;
+const initialState = {
+  current: "default",
+  past: "default",
+  isChanging: false,
+} as ThemeState;
 
 const themeSlice = createSlice({
   name: "theme",
@@ -21,12 +26,16 @@ const themeSlice = createSlice({
     setTheme(state, action: PayloadAction<ThemeType>) {
       state.past = state.current;
       state.current = action.payload;
+      state.isChanging = true;
     },
     refreshTheme(state) {
       state.past = state.current;
     },
+    finishTheme(state) {
+      state.isChanging = false;
+    },
   },
 });
 
-export const { setTheme, refreshTheme } = themeSlice.actions;
+export const { setTheme, refreshTheme, finishTheme } = themeSlice.actions;
 export default themeSlice.reducer;

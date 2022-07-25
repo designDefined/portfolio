@@ -110,7 +110,7 @@ function HomeCube(props: JSX.IntrinsicElements["mesh"]) {
       rotation={[initialRotation.x, initialRotation.y, initialRotation.z]}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="hotpink" />
+      <meshStandardMaterial color="#2450fc" />
     </mesh>
   );
 }

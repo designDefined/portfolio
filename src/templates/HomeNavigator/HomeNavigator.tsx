@@ -1,5 +1,5 @@
 import "./HomeNavigator.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import DotNavigator from "../../components/Navigator/DotNavigator/DotNavigator";
 import { dataOfHomeNavigator } from "../../data/sampleData";
@@ -12,20 +12,23 @@ import { setNextBackground } from "../../redux/background";
 function HomeNavigator() {
   const dispatch = useDispatch();
   const theme = useSelector((state: RootState) => state.theme.current);
+  const isChanging = useSelector((state: RootState) => state.theme.isChanging);
   const rotatingState = useSelector((state: RootState) => state.homeCube);
   const handleClick = (payload: ThemeType) => {
-    // change theme
-    dispatch(setTheme(payload));
+    if (!isChanging) {
+      // change theme & background
+      batch(() => {
+        dispatch(setTheme(payload));
+        dispatch(setNextBackground(""));
+      });
 
-    // change background
-    dispatch(setNextBackground(""));
-
-    // rotate cube
-    if (!rotatingState.toNext && !rotatingState.toInvert) {
-      if (isInvert(theme, payload)) {
-        dispatch(rotateInvert());
-      } else {
-        dispatch(rotateNext());
+      // rotate cube
+      if (!rotatingState.toNext && !rotatingState.toInvert) {
+        if (isInvert(theme, payload)) {
+          dispatch(rotateInvert());
+        } else {
+          dispatch(rotateNext());
+        }
       }
     }
   };

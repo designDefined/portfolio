@@ -1,7 +1,7 @@
 import "./Background.scss";
 import { batch, useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { refreshTheme } from "../../redux/theme";
+import { finishTheme, refreshTheme } from "../../redux/theme";
 import { clearNextBackground } from "../../redux/background";
 
 function Background() {
@@ -24,7 +24,9 @@ function Background() {
           }}
           onAnimationEnd={() => {
             batch(() => {
+              dispatch(refreshTheme());
               dispatch(clearNextBackground());
+              dispatch(finishTheme());
             });
           }}
         >
