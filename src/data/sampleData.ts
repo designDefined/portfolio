@@ -4,7 +4,7 @@ export const dataOfHomeNavigator: DotBoneType[] = [
   {
     type: "circle",
     name: "New",
-    clickerPayload: "new",
+    clickerPayload: "default",
     defaultColor: "#f39393",
     icon: "",
   },

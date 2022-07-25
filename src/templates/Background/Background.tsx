@@ -1,17 +1,33 @@
 import "./Background.scss";
-import { useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { refreshTheme } from "../../redux/theme";
+import { clearNextBackground } from "../../redux/background";
 
 function Background() {
+  const dispatch = useDispatch();
   const next = useSelector((state: RootState) => state.background.next);
-  const style = { backgroundColor: next.color };
+  const currentTheme = useSelector((state: RootState) => state.theme.current);
+  const pastTheme = useSelector((state: RootState) => state.theme.past);
 
   return (
-    <div className="Background">
+    <div className={`Background theme-${pastTheme}`}>
       <div className="Background_Div Background_Primary" />
       <div className="Background_Div Background_Secondary" />
-      {next && (
-        <div className="Background_Div Background_Next" style={style}>
+      {next.isExist && (
+        <div
+          className={`Background_Div Background_Next theme-${currentTheme}`}
+          onAnimationStart={() => {
+            setTimeout(() => {
+              dispatch(refreshTheme());
+            }, 3000);
+          }}
+          onAnimationEnd={() => {
+            batch(() => {
+              dispatch(clearNextBackground());
+            });
+          }}
+        >
           1
         </div>
       )}

@@ -85,8 +85,8 @@ function HomeCube(props: JSX.IntrinsicElements["mesh"]) {
 
   useFrame(() => {
     if (getRotatingNext()) {
-      if (!easeInOutRotationTo(mesh.current, "y", 150, -pi / 2, 0)) {
-        if (!easeInOutRotationTo(mesh.current, "z", 150, pi / 2, 1)) {
+      if (!easeInOutRotationTo(mesh.current, "y", 120, -pi / 2, 0)) {
+        if (!easeInOutRotationTo(mesh.current, "z", 120, pi / 2, 1)) {
           count = 0;
           setRotationTo(mesh.current, initialRotation);
           store.dispatch(rotateStop());

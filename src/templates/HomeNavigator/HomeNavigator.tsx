@@ -5,13 +5,24 @@ import DotNavigator from "../../components/Navigator/DotNavigator/DotNavigator";
 import { dataOfHomeNavigator } from "../../data/sampleData";
 import { rotateInvert, rotateNext } from "../../redux/homeCube";
 import { RootState } from "../../redux/store";
+import { setTheme, ThemeType } from "../../redux/theme";
+import { isInvert } from "./homeNavigatorFunctions";
+import { setNextBackground } from "../../redux/background";
 
 function HomeNavigator() {
   const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.current);
   const rotatingState = useSelector((state: RootState) => state.homeCube);
-  const handleClick = (payload: string) => {
+  const handleClick = (payload: ThemeType) => {
+    // change theme
+    dispatch(setTheme(payload));
+
+    // change background
+    dispatch(setNextBackground(""));
+
+    // rotate cube
     if (!rotatingState.toNext && !rotatingState.toInvert) {
-      if (["new", "contact"].includes(payload)) {
+      if (isInvert(theme, payload)) {
         dispatch(rotateInvert());
       } else {
         dispatch(rotateNext());
