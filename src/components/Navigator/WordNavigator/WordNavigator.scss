@@ -1,0 +1,10 @@
+.WordNavigator{
+  width:100%;
+  height:100%;
+  .WordNavigator_List {
+    position: relative;
+    display: flex;
+    height:100%;
+    justify-content: space-around;
+  }
+}

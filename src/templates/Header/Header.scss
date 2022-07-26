@@ -1,0 +1,32 @@
+@use"../../styles/fonts";
+$Header_Logo-width: 150px;
+
+.Header{
+  position:fixed;
+  display: flex;
+  width:100%;
+  height:40px;
+  top:0;
+  padding:0 30px 0 30px;
+  z-index: 2;
+  background-color: var(--background1-color);
+  box-shadow: black 0 0 5px 0;
+  .Header_Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:$Header_Logo-width;
+    height:100%;
+    font-family: fonts.$font-righteous;
+    font-size:32px;
+    text-shadow: gray 3px 3px 0;
+    cursor: pointer;
+  }
+  .Header_Navigator{
+    position:relative;
+
+    width:60%;
+    height:100%;
+    left:calc(40% - #{$Header_Logo-width});
+  }
+}

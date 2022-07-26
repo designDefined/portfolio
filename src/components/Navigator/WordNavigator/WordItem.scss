@@ -1,0 +1,14 @@
+@use "../../../styles/fonts";
+.WordItem{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color);
+  font-size:24px;
+  font-family: fonts.$font-babas-neue;
+  a{
+    color:inherit;
+    text-decoration: inherit;
+  }
+}

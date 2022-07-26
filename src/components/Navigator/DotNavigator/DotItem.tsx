@@ -7,31 +7,33 @@ interface DotItemParams {
   index: number;
   bone: DotBoneType;
   clicker: (payload: any) => void;
+  currentValue: string;
 }
 
 const DotItemStyle = (color: string) => ({
   borderColor: color,
 });
 
-function DotItem({ index, bone, clicker }: DotItemParams) {
-  const currentTheme = useSelector((state: RootState) => state.theme.current);
+function DotItem({ index, bone, clicker, currentValue }: DotItemParams) {
+  const { type, icon, name, clickerPayload, defaultColor } = bone;
   return (
     <li
       key={index}
       className={`DotItem 
-      ${bone.type === "circle" && "DotItem-circle"} 
-      ${bone.type === "rect" && "DotItem-rect"}`}
-      style={currentTheme === "default" ? DotItemStyle(bone.defaultColor) : {}}
+      ${type === "circle" && "DotItem-circle"} 
+      ${type === "rect" && "DotItem-rect"}
+      ${clickerPayload === currentValue ? "selected" : "notSelected"}
+      `}
+      style={currentValue === "default" ? DotItemStyle(defaultColor) : {}}
     >
       <button
         className="DotItem_Button"
         type="button"
         onClick={() => {
-          console.log("a");
-          clicker(bone.clickerPayload);
+          clicker(clickerPayload);
         }}
       />
-      <div className="DotItem_Name">{bone.name}</div>
+      <div className="DotItem_Name">{name}</div>
     </li>
   );
 }

@@ -34,7 +34,11 @@ function HomeNavigator() {
   };
   return (
     <article className="HomeNavigator">
-      <DotNavigator boneArray={dataOfHomeNavigator} clicker={handleClick} />
+      <DotNavigator
+        boneArray={dataOfHomeNavigator}
+        clicker={handleClick}
+        currentValue={theme}
+      />
     </article>
   );
 }

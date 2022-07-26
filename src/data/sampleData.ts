@@ -1,4 +1,12 @@
-import { DotBoneType } from "../types/BoneInterface";
+import { DotBoneType, WordBoneType } from "../types/BoneInterface";
+
+export const dataOfHeader: WordBoneType[] = [
+  { type: "link", name: "Home", clickerPayload: "home" },
+  { type: "link", name: "New", clickerPayload: "home" },
+  { type: "link", name: "Works", clickerPayload: "as" },
+  { type: "link", name: "About", clickerPayload: "home" },
+  { type: "link", name: "Contact", clickerPayload: "home" },
+];
 
 export const dataOfHomeNavigator: DotBoneType[] = [
   {
